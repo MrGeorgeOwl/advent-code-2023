@@ -10,9 +10,19 @@ def main(input_file: io.TextIOWrapper):
 
 
 def parse_line(line: str) -> int:
-    digits = [i for i in line if i.isdigit()]
-    return int(digits[0] + digits[-1])
+    first = parse_first_number(line)    
+    last = parse_last_number(line)    
+    return int(first + last)
 
+
+def parse_first_number(line: str) -> str:
+    first = [i for i in line if i.isdigit()][0]
+    return first
+
+
+def parse_last_number(line: str) -> str:
+    last = [i for i in line if i.isdigit()][-1]
+    return last
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
