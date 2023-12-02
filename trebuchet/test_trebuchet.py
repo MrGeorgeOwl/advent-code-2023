@@ -1,4 +1,4 @@
-from main import calibration_sum
+from trebuchet import calibration_sum
 
 data = [
     "two1nine",

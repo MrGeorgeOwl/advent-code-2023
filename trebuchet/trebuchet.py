@@ -47,7 +47,7 @@ def parse_first_number(line: str) -> str:
 
 
 def parse_last_number(line: str) -> str:
-    for i in range(len(line) - 1, 0, -1):
+    for i in range(len(line) - 1, -1, -1):
         v = line[i]
         if v.isdigit():
             return v
@@ -57,7 +57,7 @@ def parse_last_number(line: str) -> str:
             if subline == k:
                 return TEXT_TO_NUMBERS[k]
 
-    raise ValueError("Couldn't parse last number")
+    raise ValueError("Couldn't parse last number. Line: %s" % line)
 
 
 if __name__ == "__main__":
