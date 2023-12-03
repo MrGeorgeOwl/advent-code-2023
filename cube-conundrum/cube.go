@@ -28,14 +28,22 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	filtered := filterGamesWithUpperBound(games, 12, 13, 14)
 
-	var sum int
+	filtered := filterGamesWithUpperBound(games, 12, 13, 14)
+	var idSum int
 	for _, item := range filtered {
-		sum += item.Id
+		idSum += item.Id
 	}
 
-	fmt.Println(sum)
+	fmt.Println("sum of ids with possible amount of cubes (1 part)", idSum)
+
+	var productSum int
+	for _, item := range games {
+		product := item.MaxRed * item.MaxGreen * item.MaxBlue
+		productSum += product
+	}
+
+	fmt.Println("sum of products (2 part): ", productSum)
 }
 
 func parseGamesFile() ([]game, error) {
